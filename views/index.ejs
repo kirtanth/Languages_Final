@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <title>
+        <%= title %>
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body class="h-100">
+    <h1>
+        <%= title %>
+    </h1>
+    <% include  ./functions %>
+        <div id="LangDiv" class="container bg-light">
+            <p>Select Language :</p>
+            <select id="selLang" onchange="myFunction()">
+        <% for(i=0; i< languages.length; i++){ %> 
+        <option value="<%= languages[i] %>"><%= languages[i] %></option>
+        <% } %> 
+      </select>
+            <div id="show" class="bg-danger mt-3 text-white">Please Select Language </div>
+
+            <div id="lvC">
+                <strong> Latest Version : </strong> <br>
+                <%=LangVer.C%>
+                    <hr>
+                    <p> <strong> Topics: </strong> </p>
+                    <% for(i=0; i< subtopics.C.topics.length;i++){%>
+                        <li>
+                            <%= subtopics.C.topics[i] %>
+                        </li>
+                        <% } %>
+            </div>
+
+            <div id="lvCpp">
+                <strong> Latest Version : </strong> <br>
+                <%=LangVer.Cpp%>
+                    <hr>
+                    <p> <strong> Topics: </strong> </p>
+                    <% for(i=0; i< subtopics.Cpp.topics.length;i++){%>
+                        <li>
+                            <%= subtopics.Cpp.topics[i] %>
+                        </li>
+                        <% } %>
+            </div>
+
+            <div id="lvJava">
+                <strong> Latest Version : </strong> <br>
+                <%=LangVer.Java%>
+                    <hr>
+                    <p> <strong> Topics: </strong> </p>
+                    <% for(i=0; i< subtopics.Java.topics.length;i++){%>
+                        <li>
+                            <%= subtopics.Java.topics[i] %>
+                        </li>
+                        <% } %>
+            </div>
+
+            <div id="lvPython">
+                <strong> Latest Version : </strong> <br>
+                <%=LangVer.Python%>
+                    <hr>
+                    <p> <strong> Topics: </strong> </p>
+                    <% for(i=0; i< subtopics.Python.topics.length;i++){%>
+                        <li>
+                            <%= subtopics.Python.topics[i] %>
+                        </li>
+                        <% } %>
+            </div>
+
+            <!-- ------------------------JavaScript STARTS---------------------------------------------------------- -->
+            <script>
+                var lC = document.getElementById("lvC");
+                lC.style.display = "none";
+
+                var lCpp = document.getElementById("lvCpp");
+                lCpp.style.display = "none";
+
+                var lJava = document.getElementById("lvJava");
+                lJava.style.display = "none";
+
+                var lPython = document.getElementById("lvPython");
+                lPython.style.display = "none";
+
+                var show = document.getElementById("show")
+
+
+
+                function myFunction() {
+                    var selectedLang = document.getElementById("selLang").value;
+
+                    switch (selectedLang) {
+                        case "--Select--":
+                            lCpp.style.display = "none";
+                            lJava.style.display = "none";
+                            lPython.style.display = "none";
+                            lC.style.display = "none";
+                            show.style.display = "block";
+                            break;
+
+                        case "C":
+                            lCpp.style.display = "none";
+                            lJava.style.display = "none";
+                            lPython.style.display = "none";
+                            lC.style.display = "block";
+                            show.style.display = "none";
+                            break;
+                        case "C++":
+                            lC.style.display = "none";
+                            lJava.style.display = "none";
+                            lPython.style.display = "none";
+                            lCpp.style.display = "block";
+                            show.style.display = "none";
+
+                            break;
+                        case "Java":
+                            lC.style.display = "none";
+                            lCpp.style.display = "none";
+                            lPython.style.display = "none";
+                            lJava.style.display = "block";
+                            show.style.display = "none";
+
+                            break;
+                        case "Python":
+                            lC.style.display = "none";
+                            lCpp.style.display = "none";
+                            lJava.style.display = "none";
+                            lPython.style.display = "block";
+                            show.style.display = "none";
+
+                    }
+                }
+            </script>
+            <!-- ------------------------JavaScript ENDS--------------------------------------------- -->
+
+        </div>
+</body>
+
+</html>

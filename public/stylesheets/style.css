@@ -1,0 +1,33 @@
+body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+    color: #00B7FF;
+}
+
+#LangDiv {
+    text-align: center;
+    font-size: 200%;
+    margin: auto;
+    width: 90%;
+    margin-top: 10%;
+    padding: 2%;
+}
+
+#lvC {
+    margin-top: 2%;
+}
+
+#lvCpp {
+    margin-top: 2%;
+}
+
+#lvJava {
+    margin-top: 2%;
+}
+
+#lvPython {
+    margin-top: 2%;
+}
